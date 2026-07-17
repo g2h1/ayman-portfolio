@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Design tokens — dark red-orange identity
+------------------------------------------------------------------ */
+@theme {
+  --font-display: "Cairo", "Segoe UI", sans-serif;
+  --font-body: "Cairo", "Segoe UI", sans-serif;
+
+  --color-ink: #120D0C;          /* base background — near-black warm charcoal */
+  --color-ink-soft: #1C1412;     /* raised surface / cards */
+  --color-ink-line: #2E211D;     /* hairline borders on dark */
+
+  --color-ember: #D6491F;        /* primary accent — burnt red-orange */
+  --color-ember-dim: #A63A18;    /* pressed / secondary state */
+  --color-ember-glow: #FF7A3D;   /* bright highlight, glows, hover */
+
+  --color-gold: #E8A33D;         /* secondary accent — warm gold */
+
+  --color-paper: #F6ECE3;        /* primary text on dark */
+  --color-paper-muted: #B8A89D;  /* secondary text on dark */
+
+  --color-charcoal: #1A1512;     /* text on light surfaces */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-body);
+}
+
+[dir="rtl"] {
+  font-family: var(--font-body);
+}
+
+::selection {
+  background-color: var(--color-ember);
+  color: var(--color-paper);
+}
+
+/* Marquee ticker — signature hero device */
+@keyframes marquee-ltr {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes marquee-rtl {
+  from { transform: translateX(0); }
+  to { transform: translateX(50%); }
+}
+.marquee-track {
+  animation: marquee-ltr 22s linear infinite;
+}
+[dir="rtl"] .marquee-track {
+  animation: marquee-rtl 22s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
