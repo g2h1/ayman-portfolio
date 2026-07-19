@@ -6,6 +6,7 @@ export const content = {
     nav: {
       home: "الرئيسية",
       work: "الأعمال",
+      partners: "الشركاء",
       pricing: "الأسعار",
       contact: "تواصل معايا",
     },
@@ -25,6 +26,17 @@ export const content = {
     footer: {
       rights: "جميع الحقوق محفوظة",
       tagline: "القاهرة، مصر",
+    },
+    home: {
+      newsLabel: "جديد:",
+    },
+    partners: {
+      title: "الشركاء",
+      subtitle: "صنّاع محتوى تعاونت معاهم في حملات إعلانية ناجحة",
+      followers: "متابع",
+      noPartners: "لسه مفيش شركاء مضافين",
+      notFound: "الصفحة دي مش موجودة",
+      backToPartners: "رجوع للشركاء",
     },
     placeholder: {
       comingSoon: "القسم ده جاي في المرحلة الجاية",
@@ -73,6 +85,7 @@ export const content = {
     nav: {
       home: "Home",
       work: "Work",
+      partners: "Partners",
       pricing: "Pricing",
       contact: "Contact",
     },
@@ -92,6 +105,17 @@ export const content = {
     footer: {
       rights: "All rights reserved",
       tagline: "Cairo, Egypt",
+    },
+    home: {
+      newsLabel: "New:",
+    },
+    partners: {
+      title: "Partners",
+      subtitle: "Content creators I've collaborated with on successful ad campaigns",
+      followers: "followers",
+      noPartners: "No partners added yet",
+      notFound: "This page doesn't exist",
+      backToPartners: "Back to Partners",
     },
     placeholder: {
       comingSoon: "This section is coming in the next phase",
