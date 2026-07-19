@@ -19,7 +19,7 @@ export default function Header() {
           to="/"
           className="text-lg font-extrabold tracking-tight text-paper hover:text-ember-glow transition-colors"
         >
-          {lang === "ar" ? "أيمن منصور" : "Ayman Mansour"}
+          {lang === "ar" ? "أيمن منصور · Agency" : "Ayman Mansour Agency"}
         </NavLink>
 
         {/* قائمة سطح المكتب */}
