@@ -54,10 +54,10 @@ export default function Lightbox({ project, onClose }) {
           className="relative w-full max-w-3xl rounded-2xl overflow-hidden bg-ink-soft border border-ink-line"
         >
           <div
-            className="relative h-72 md:h-96 w-full flex items-center justify-center bg-cover bg-center"
+            className="relative h-72 md:h-[28rem] w-full flex items-center justify-center bg-cover bg-center bg-ink"
             style={{
               background: hasImages
-                ? `url("${images[index]}") center/cover`
+                ? `url("${images[index]}") center/contain no-repeat`
                 : `linear-gradient(135deg, ${tintMap[project.tint]}33, transparent)`,
             }}
           >
