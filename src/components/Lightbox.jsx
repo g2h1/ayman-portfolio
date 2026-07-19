@@ -41,17 +41,21 @@ export default function Lightbox({ project, onClose }) {
           className="relative w-full max-w-3xl rounded-2xl overflow-hidden bg-ink-soft border border-ink-line"
         >
           <div
-            className="h-72 md:h-96 w-full flex items-center justify-center"
+            className="h-72 md:h-96 w-full flex items-center justify-center bg-cover bg-center"
             style={{
-              background: `linear-gradient(135deg, ${tintMap[project.tint]}33, transparent)`,
+              background: project.imageUrl
+                ? `url(${project.imageUrl}) center/cover`
+                : `linear-gradient(135deg, ${tintMap[project.tint]}33, transparent)`,
             }}
           >
-            <span
-              className="text-6xl font-black opacity-30"
-              style={{ color: tintMap[project.tint] }}
-            >
-              {(lang === "ar" ? project.ar : project.en).charAt(0)}
-            </span>
+            {!project.imageUrl && (
+              <span
+                className="text-6xl font-black opacity-30"
+                style={{ color: tintMap[project.tint] }}
+              >
+                {(lang === "ar" ? project.ar : project.en).charAt(0)}
+              </span>
+            )}
           </div>
 
           <div className="p-6 md:p-8">

@@ -37,6 +37,32 @@ export const content = {
       placeholderNotice:
         "دي مشاريع تجريبية لحد ما تبعتلي صور أعمالك الحقيقية",
     },
+    pricing: {
+      title: "الأسعار",
+      subtitle: "خدمات شاملة، والسعر بيتحدد بالظبط حسب تفاصيل مشروعك",
+      startingAt: "يبدأ من",
+      currency: "$",
+      cta: "تواصل معايا",
+      reviewsTitle: "آراء العملاء",
+      paymentTitle: "طرق الدفع المتاحة",
+      paymentText: "اختار الوسيلة المناسبة لك",
+      paymentContactMe: "راسلني للتفاصيل",
+    },
+    contact: {
+      title: "تواصل معايا",
+      subtitle: "أسرع طريقة توصلني هي الواتساب — أو ابعتلي إيميل لو بتفضل كده",
+      whatsappLabel: "راسلني على واتساب",
+      emailLabel: "ابعتلي إيميل",
+      orLabel: "أو ابعت رسالة سريعة",
+      formTitle: "رسالة سريعة",
+      formSubtitle: "اكتب طلبك وهبعتهولك جاهز على واتساب أو الإيميل، اختار اللي يناسبك",
+      nameLabel: "الاسم",
+      namePlaceholder: "اكتب اسمك",
+      messageLabel: "الرسالة",
+      messagePlaceholder: "قولّي محتاج إيه بالظبط...",
+      sendWhatsapp: "ابعت على واتساب",
+      sendEmail: "ابعت بالإيميل",
+    },
   },
   en: {
     nav: {
@@ -73,6 +99,32 @@ export const content = {
       placeholderNotice:
         "These are placeholder projects until you send your real work",
     },
+    pricing: {
+      title: "Pricing",
+      subtitle: "Comprehensive services — final pricing depends on your project details",
+      startingAt: "Starting at",
+      currency: "$",
+      cta: "Get in touch",
+      reviewsTitle: "Client Reviews",
+      paymentTitle: "Accepted Payment Methods",
+      paymentText: "Pick whichever works best for you",
+      paymentContactMe: "Message me for details",
+    },
+    contact: {
+      title: "Get in Touch",
+      subtitle: "The fastest way to reach me is WhatsApp — or send an email if you prefer",
+      whatsappLabel: "Message me on WhatsApp",
+      emailLabel: "Send me an email",
+      orLabel: "Or send a quick message",
+      formTitle: "Quick Message",
+      formSubtitle: "Write your request and I'll open it ready on WhatsApp or email, whichever you prefer",
+      nameLabel: "Name",
+      namePlaceholder: "Your name",
+      messageLabel: "Message",
+      messagePlaceholder: "Tell me exactly what you need...",
+      sendWhatsapp: "Send via WhatsApp",
+      sendEmail: "Send via Email",
+    },
   },
 };
 
@@ -83,13 +135,107 @@ export const categories = [
   { key: "video", ar: "مونتاج", en: "Video Editing" },
 ];
 
-export const projects = [
-  { id: 1, category: "branding", year: 2025, ar: "هوية بصرية — مقهى نوستالجيا", en: "Visual Identity — Nostalgia Café", tint: "ember" },
-  { id: 2, category: "motion", year: 2025, ar: "إعلان موشن جرافيك — تطبيق توصيل", en: "Motion Ad — Delivery App", tint: "gold" },
-  { id: 3, category: "social", year: 2024, ar: "حملة سوشيال ميديا — إطلاق منتج", en: "Social Campaign — Product Launch", tint: "ember-glow" },
-  { id: 4, category: "social", year: 2024, ar: "تصميم بوستات — علامة مشروبات", en: "Post Designs — Beverage Brand", tint: "gold" },
-  { id: 5, category: "video", year: 2024, ar: "مونتاج فيديو — فيلم قصير", en: "Video Edit — Short Film", tint: "ember" },
-  { id: 6, category: "branding", year: 2023, ar: "شعار ودليل هوية — علامة أزياء", en: "Logo & Brand Guide — Fashion Label", tint: "ember-glow" },
-  { id: 7, category: "motion", year: 2023, ar: "انتقالات متحركة — ريلز إنستجرام", en: "Animated Transitions — Instagram Reels", tint: "gold" },
-  { id: 8, category: "video", year: 2023, ar: "مونتاج بودكاست — حلقات أسبوعية", en: "Podcast Edit — Weekly Episodes", tint: "ember" },
+export const pricingPackages = [
+  {
+    id: "graphic-design",
+    ar: "تصميم جرافيك",
+    en: "Graphic Design",
+    startingAt: 30,
+    description: {
+      ar: "خدمة شاملة تغطي كل احتياجاتك من التصميم — من الهوية البصرية لبوستات السوشيال ميديا",
+      en: "A comprehensive service covering all your design needs — from visual identity to social media posts",
+    },
+    features: {
+      ar: ["شعار وهوية بصرية", "بوستات وقصص سوشيال ميديا", "بروشورات وإعلانات مطبوعة", "تصميم بانرات وغلاف صفحات"],
+      en: ["Logo & visual identity", "Social media posts & stories", "Brochures & print ads", "Banners & page covers"],
+    },
+  },
+  {
+    id: "video-motion",
+    ar: "مونتاج وموشن جرافيك",
+    en: "Video Editing & Motion Graphics",
+    startingAt: 25,
+    description: {
+      ar: "خدمة شاملة للمونتاج والموشن جرافيك — من الريلز القصيرة للفيديوهات الطويلة والإعلانات",
+      en: "A comprehensive video editing and motion service — from short reels to long-form videos and ads",
+    },
+    features: {
+      ar: ["مونتاج فيديوهات وريلز", "موشن جرافيك وانتقالات", "تصحيح ألوان وصوت", "إعلانات فيديو للمنتجات"],
+      en: ["Video & reels editing", "Motion graphics & transitions", "Color & audio correction", "Product video ads"],
+    },
+  },
+  {
+    id: "page-management",
+    ar: "إدارة صفحات السوشيال ميديا",
+    en: "Social Media Page Management",
+    startingAt: 90,
+    description: {
+      ar: "إدارة كاملة لصفحاتك على السوشيال ميديا — محتوى، جدولة، وتواصل مع المتابعين",
+      en: "Full management of your social media pages — content, scheduling, and audience engagement",
+    },
+    features: {
+      ar: ["خطة محتوى شهرية", "تصميم ونشر البوستات", "جدولة المحتوى", "الرد على تعليقات ورسايل المتابعين"],
+      en: ["Monthly content plan", "Post design & publishing", "Content scheduling", "Replying to comments & messages"],
+    },
+  },
+  {
+    id: "ad-campaigns",
+    ar: "الحملات الإعلانية",
+    en: "Advertising Campaigns",
+    startingAt: 120,
+    description: {
+      ar: "تخطيط وتنفيذ حملات إعلانية متكاملة على السوشيال ميديا تناسب هدفك (مبيعات، متابعين، وعي بالبراند)",
+      en: "Planning and running full ad campaigns on social media tailored to your goal (sales, followers, brand awareness)",
+    },
+    features: {
+      ar: ["تصميم محتوى الحملة", "استهداف الجمهور المناسب", "متابعة الأداء وتحسين النتائج", "تقرير نهائي بالنتائج"],
+      en: ["Campaign creative design", "Targeting the right audience", "Performance tracking & optimization", "Final results report"],
+    },
+  },
 ];
+
+export const paymentMethods = [
+  { key: "instapay", ar: "InstaPay", en: "InstaPay", detail: "01027966923" },
+  { key: "vodafone", ar: "فودافون كاش", en: "Vodafone Cash", detail: "01027966923" },
+  { key: "bank", ar: "تحويل بنكي", en: "Bank Transfer", detail: null },
+  { key: "paypal", ar: "PayPal", en: "PayPal", detail: "ayman8623a@gmail.com" },
+  { key: "binance", ar: "Binance", en: "Binance", detail: null },
+];
+
+export const testimonials = [
+  {
+    id: 1,
+    name: "محمد سامي",
+    role: { ar: "صاحب مشروع تجاري", en: "Business Owner" },
+    text: {
+      ar: "شغل محترم جدًا والتزام بالمواعيد، الهوية البصرية اللي عملها لينا غيرت شكل البراند خالص.",
+      en: "Very professional work and always on time — the identity he built completely elevated our brand.",
+    },
+  },
+  {
+    id: 2,
+    name: "سارة عادل",
+    role: { ar: "مديرة تسويق", en: "Marketing Manager" },
+    text: {
+      ar: "المونتاج بتاعه فيه إحساس مختلف، بيفهم الهدف من الفيديو مش بس يركب كليبات.",
+      en: "His editing has a different feel — he understands the video's purpose, not just cutting clips.",
+    },
+  },
+  {
+    id: 3,
+    name: "خالد إبراهيم",
+    role: { ar: "مؤسس متجر إلكتروني", en: "E-commerce Founder" },
+    text: {
+      ar: "إدارة الصفحة معاه خلت التفاعل يزيد بشكل واضح، وبيرد بسرعة على أي تعديل نطلبه.",
+      en: "Managing the page with him clearly boosted engagement, and he's quick to respond to any revision.",
+    },
+  },
+];
+
+export const contactInfo = {
+  whatsapp: "201027966923",
+  email: "ayman8623a@gmail.com",
+};
+
+// ملحوظة: بيانات المشاريع بقت بتيجي من Supabase مباشرة (شوف src/lib/supabaseClient.js
+// وملف supabase/schema.sql) بدل ما تكون ثابتة هنا في الكود.
