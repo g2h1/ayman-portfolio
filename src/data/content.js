@@ -37,6 +37,10 @@ export const content = {
       noPartners: "لسه مفيش شركاء مضافين",
       notFound: "الصفحة دي مش موجودة",
       backToPartners: "رجوع للشركاء",
+      campaignsTitle: "الحملات الإعلانية",
+      noCampaigns: "لسه مفيش حملات مضافة لصانع المحتوى ده",
+      views: "مشاهدة",
+      likes: "لايك",
     },
     placeholder: {
       comingSoon: "القسم ده جاي في المرحلة الجاية",
@@ -116,6 +120,10 @@ export const content = {
       noPartners: "No partners added yet",
       notFound: "This page doesn't exist",
       backToPartners: "Back to Partners",
+      campaignsTitle: "Ad Campaigns",
+      noCampaigns: "No campaigns added for this creator yet",
+      views: "views",
+      likes: "likes",
     },
     placeholder: {
       comingSoon: "This section is coming in the next phase",

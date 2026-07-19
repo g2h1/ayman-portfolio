@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import { supabase } from "../lib/supabaseClient";
+import { getYoutubeEmbedUrl } from "../lib/media";
 
 export default function PartnerDetail() {
   const { id } = useParams();
   const { lang, t } = useLanguage();
   const [partner, setPartner] = useState(null);
+  const [campaigns, setCampaigns] = useState([]);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
 
@@ -14,16 +16,21 @@ export default function PartnerDetail() {
     let isMounted = true;
     async function load() {
       setLoading(true);
-      const { data, error } = await supabase
-        .from("partners")
-        .select("*")
-        .eq("id", id)
-        .single();
+      const [partnerRes, campaignsRes] = await Promise.all([
+        supabase.from("partners").select("*").eq("id", id).single(),
+        supabase
+          .from("campaigns")
+          .select("*")
+          .eq("partner_id", id)
+          .order("sort_order", { ascending: true })
+          .order("created_at", { ascending: false }),
+      ]);
       if (isMounted) {
-        if (error || !data) {
+        if (partnerRes.error || !partnerRes.data) {
           setNotFound(true);
         } else {
-          setPartner(data);
+          setPartner(partnerRes.data);
+          setCampaigns(campaignsRes.data || []);
         }
         setLoading(false);
       }
@@ -117,19 +124,70 @@ export default function PartnerDetail() {
         </div>
       )}
 
-      {(partner.campaign_title || partner.campaign_description) && (
-        <div className="mt-10 rounded-2xl border border-ink-line bg-ink-soft p-6 md:p-8">
-          {partner.campaign_title && (
-            <h2 className="text-lg font-extrabold text-gold">
-              {partner.campaign_title}
-            </h2>
-          )}
-          {partner.campaign_description && (
-            <p className="mt-3 text-sm text-paper-muted leading-relaxed">
-              {partner.campaign_description}
-            </p>
-          )}
+      {/* الحملات الإعلانية */}
+      {campaigns.length > 0 && (
+        <div className="mt-10">
+          <h2 className="text-xl font-extrabold text-paper mb-5">
+            {t.partners.campaignsTitle}
+          </h2>
+          <div className="space-y-6">
+            {campaigns.map((c) => {
+              const embedUrl = getYoutubeEmbedUrl(c.youtube_url);
+              return (
+                <div
+                  key={c.id}
+                  className="rounded-2xl border border-ink-line bg-ink-soft overflow-hidden"
+                >
+                  {embedUrl && (
+                    <div className="aspect-video w-full">
+                      <iframe
+                        src={embedUrl}
+                        title={c.title}
+                        className="w-full h-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    </div>
+                  )}
+                  <div className="p-6">
+                    <h3 className="font-extrabold text-gold">{c.title}</h3>
+                    {c.description && (
+                      <p className="mt-2 text-sm text-paper-muted leading-relaxed">
+                        {c.description}
+                      </p>
+                    )}
+                    {(c.views_count != null || c.likes_count != null) && (
+                      <div className="mt-4 flex flex-wrap gap-4">
+                        {c.views_count != null && (
+                          <span className="text-xs font-bold text-paper-muted">
+                            👁 {c.views_count.toLocaleString(
+                              lang === "ar" ? "ar-EG" : "en-US"
+                            )}{" "}
+                            {t.partners.views}
+                          </span>
+                        )}
+                        {c.likes_count != null && (
+                          <span className="text-xs font-bold text-paper-muted">
+                            ❤ {c.likes_count.toLocaleString(
+                              lang === "ar" ? "ar-EG" : "en-US"
+                            )}{" "}
+                            {t.partners.likes}
+                          </span>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
+      )}
+
+      {campaigns.length === 0 && (
+        <p className="mt-10 text-sm text-paper-muted">
+          {t.partners.noCampaigns}
+        </p>
       )}
     </section>
   );
