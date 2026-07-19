@@ -46,6 +46,7 @@ export default function Work() {
           en: p.title_en,
           tint: p.tint || "ember",
           imageUrls: p.image_urls && p.image_urls.length > 0 ? p.image_urls : [],
+          likesCount: p.likes_count || 0,
         }));
         setProjects(mapped);
       }

@@ -36,6 +36,11 @@ export const content = {
       close: "قفل",
       placeholderNotice:
         "دي مشاريع تجريبية لحد ما تبعتلي صور أعمالك الحقيقية",
+      contactCta: "تواصل معنا",
+      commentsTitle: "التعليقات",
+      commentPlaceholder: "اكتب تعليقك...",
+      commentSubmit: "إرسال",
+      noComments: "لسه مفيش تعليقات، كن أول من يعلّق",
     },
     pricing: {
       title: "الأسعار",
@@ -98,6 +103,11 @@ export const content = {
       close: "Close",
       placeholderNotice:
         "These are placeholder projects until you send your real work",
+      contactCta: "Contact Us",
+      commentsTitle: "Comments",
+      commentPlaceholder: "Write a comment...",
+      commentSubmit: "Send",
+      noComments: "No comments yet, be the first to comment",
     },
     pricing: {
       title: "Pricing",
