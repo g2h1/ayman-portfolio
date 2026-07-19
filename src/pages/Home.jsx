@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
+import NewsTicker from "../components/NewsTicker";
 
 export default function Home() {
   const { t } = useLanguage();
@@ -51,6 +52,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <NewsTicker />
     </div>
   );
 }

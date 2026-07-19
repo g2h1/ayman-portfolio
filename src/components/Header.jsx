@@ -4,6 +4,7 @@ import { useLanguage } from "../context/LanguageContext";
 const navItems = [
   { key: "home", path: "/" },
   { key: "work", path: "/work" },
+  { key: "partners", path: "/partners" },
   { key: "pricing", path: "/pricing" },
   { key: "contact", path: "/contact" },
 ];

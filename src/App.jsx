@@ -7,6 +7,8 @@ import Home from "./pages/Home";
 import Work from "./pages/Work";
 import Pricing from "./pages/Pricing";
 import Contact from "./pages/Contact";
+import Partners from "./pages/Partners";
+import PartnerDetail from "./pages/PartnerDetail";
 
 const SESSION_KEY = "ayman-portfolio-intro-seen";
 
@@ -23,6 +25,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/work" element={<Work />} />
+          <Route path="/partners" element={<Partners />} />
+          <Route path="/partners/:id" element={<PartnerDetail />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
