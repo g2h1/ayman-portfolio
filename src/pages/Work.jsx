@@ -45,7 +45,7 @@ export default function Work() {
           ar: p.title_ar,
           en: p.title_en,
           tint: p.tint || "ember",
-          imageUrl: p.image_url,
+          imageUrls: p.image_urls && p.image_urls.length > 0 ? p.image_urls : [],
         }));
         setProjects(mapped);
       }
@@ -135,12 +135,12 @@ export default function Work() {
                 <div
                   className="h-48 flex items-center justify-center bg-cover bg-center"
                   style={{
-                    background: project.imageUrl
-                      ? `url(${project.imageUrl}) center/cover`
+                    background: project.imageUrls[0]
+                      ? `url(${project.imageUrls[0]}) center/cover`
                       : `linear-gradient(135deg, ${tintMap[project.tint]}2b, transparent)`,
                   }}
                 >
-                  {!project.imageUrl && (
+                  {!project.imageUrls[0] && (
                     <span
                       className="text-5xl font-black opacity-25 group-hover:opacity-50 transition-opacity"
                       style={{ color: tintMap[project.tint] }}
