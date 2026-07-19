@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import { pricingPackages, testimonials, paymentMethods } from "../data/content";
 
@@ -52,12 +53,12 @@ export default function Pricing() {
               )}
             </ul>
 
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="mt-6 inline-flex items-center justify-center rounded-full bg-ember px-5 py-2.5 text-sm font-bold text-paper hover:bg-ember-glow transition-colors self-start"
             >
               {t.pricing.cta}
-            </a>
+            </Link>
           </div>
         ))}
       </div>
@@ -114,12 +115,12 @@ export default function Pricing() {
           ))}
         </div>
 
-        <a
-          href="/contact"
+        <Link
+          to="/contact"
           className="mt-6 inline-flex items-center justify-center rounded-full bg-ember px-6 py-2.5 text-sm font-bold text-paper hover:bg-ember-glow transition-colors"
         >
           {t.pricing.cta}
-        </a>
+        </Link>
       </div>
     </section>
   );

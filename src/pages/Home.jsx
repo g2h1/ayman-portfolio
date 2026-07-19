@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 
 export default function Home() {
@@ -27,12 +28,12 @@ export default function Home() {
           <p className="mt-6 max-w-xl text-lg md:text-xl text-paper-muted">
             {t.hero.subtitle}
           </p>
-          <a
-            href="/work"
+          <Link
+            to="/work"
             className="mt-10 inline-flex items-center gap-2 rounded-full bg-ember px-7 py-3 text-sm font-bold text-paper hover:bg-ember-glow transition-colors"
           >
             {t.hero.cta}
-          </a>
+          </Link>
         </div>
 
         {/* signature element — infinite skills ticker, showreel-style */}
