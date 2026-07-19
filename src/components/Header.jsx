@@ -79,15 +79,17 @@ export default function Header() {
       {/* قائمة الموبايل المنسدلة */}
       {menuOpen && (
         <nav className="md:hidden border-t border-ink-line/60 bg-ink">
-          <div className="flex flex-col px-6 py-4 gap-1">
+          <div className="flex flex-wrap gap-2 px-6 py-4">
             {navItems.map((item) => (
               <NavLink
                 key={item.key}
                 to={item.path}
                 onClick={closeMenu}
                 className={({ isActive }) =>
-                  `py-3 text-sm font-semibold border-b border-ink-line/40 last:border-b-0 transition-colors ${
-                    isActive ? "text-ember-glow" : "text-paper-muted"
+                  `rounded-full px-4 py-2 text-sm font-bold transition-colors ${
+                    isActive
+                      ? "bg-ember text-paper"
+                      : "bg-ink-soft text-paper-muted hover:text-paper"
                   }`
                 }
               >
