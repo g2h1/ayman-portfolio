@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
 import { categories } from "../data/content";
 import { supabase } from "../lib/supabaseClient";
+import { isVideoUrl } from "../lib/media";
 import Lightbox from "../components/Lightbox";
 
 const tintMap = {
@@ -134,13 +135,24 @@ export default function Work() {
                 transition={{ duration: 0.2 }}
               >
                 <div
-                  className="h-48 flex items-center justify-center bg-cover bg-center"
+                  className="relative h-48 flex items-center justify-center bg-cover bg-center overflow-hidden"
                   style={{
-                    background: project.imageUrls[0]
-                      ? `url("${project.imageUrls[0]}") center/cover`
-                      : `linear-gradient(135deg, ${tintMap[project.tint]}2b, transparent)`,
+                    background:
+                      project.imageUrls[0] && !isVideoUrl(project.imageUrls[0])
+                        ? `url("${project.imageUrls[0]}") center/cover`
+                        : `linear-gradient(135deg, ${tintMap[project.tint]}2b, transparent)`,
                   }}
                 >
+                  {project.imageUrls[0] && isVideoUrl(project.imageUrls[0]) && (
+                    <video
+                      src={project.imageUrls[0]}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      muted
+                      loop
+                      playsInline
+                      autoPlay
+                    />
+                  )}
                   {!project.imageUrls[0] && (
                     <span
                       className="text-5xl font-black opacity-25 group-hover:opacity-50 transition-opacity"

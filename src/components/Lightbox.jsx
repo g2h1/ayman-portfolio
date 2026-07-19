@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import { supabase } from "../lib/supabaseClient";
+import { isVideoUrl } from "../lib/media";
 
 const tintMap = {
   ember: "var(--color-ember)",
@@ -124,11 +125,21 @@ export default function Lightbox({ project, onClose }) {
           <div
             className="relative h-72 md:h-[28rem] w-full flex items-center justify-center bg-cover bg-center bg-ink"
             style={{
-              background: hasImages
-                ? `url("${images[index]}") center/contain no-repeat`
-                : `linear-gradient(135deg, ${tintMap[project.tint]}33, transparent)`,
+              background:
+                hasImages && !isVideoUrl(images[index])
+                  ? `url("${images[index]}") center/contain no-repeat`
+                  : `linear-gradient(135deg, ${tintMap[project.tint]}33, transparent)`,
             }}
           >
+            {hasImages && isVideoUrl(images[index]) && (
+              <video
+                key={images[index]}
+                src={images[index]}
+                className="w-full h-full object-contain"
+                controls
+                playsInline
+              />
+            )}
             {!hasImages && (
               <span
                 className="text-6xl font-black opacity-30"
