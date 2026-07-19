@@ -57,7 +57,7 @@ export default function Lightbox({ project, onClose }) {
             className="relative h-72 md:h-96 w-full flex items-center justify-center bg-cover bg-center"
             style={{
               background: hasImages
-                ? `url(${images[index]}) center/cover`
+                ? `url("${images[index]}") center/cover`
                 : `linear-gradient(135deg, ${tintMap[project.tint]}33, transparent)`,
             }}
           >

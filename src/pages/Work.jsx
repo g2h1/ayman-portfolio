@@ -136,7 +136,7 @@ export default function Work() {
                   className="h-48 flex items-center justify-center bg-cover bg-center"
                   style={{
                     background: project.imageUrls[0]
-                      ? `url(${project.imageUrls[0]}) center/cover`
+                      ? `url("${project.imageUrls[0]}") center/cover`
                       : `linear-gradient(135deg, ${tintMap[project.tint]}2b, transparent)`,
                   }}
                 >
