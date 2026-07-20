@@ -43,7 +43,7 @@ export default function NewsTicker() {
           {t.home.newsLabel}
         </p>
 
-        <div className="relative w-full h-64 md:h-96 rounded-2xl overflow-hidden border border-ink-line">
+        <div className="relative w-full h-64 md:h-96 rounded-2xl overflow-hidden border border-ink-line bg-ink">
           <AnimatePresence mode="wait">
             <motion.div
               key={current.id}
@@ -57,11 +57,7 @@ export default function NewsTicker() {
                   ? `url("${current.image_url}") center/cover`
                   : undefined,
               }}
-            >
-              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-ink/95 via-ink/40 to-transparent p-6">
-                <p className="text-paper font-bold text-lg">{current.title}</p>
-              </div>
-            </motion.div>
+            />
           </AnimatePresence>
 
           {news.length > 1 && (
@@ -77,6 +73,19 @@ export default function NewsTicker() {
             </div>
           )}
         </div>
+
+        <AnimatePresence mode="wait">
+          <motion.p
+            key={current.id}
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -6 }}
+            transition={{ duration: 0.4 }}
+            className="mt-4 text-paper font-bold text-lg"
+          >
+            {current.title}
+          </motion.p>
+        </AnimatePresence>
       </div>
     </div>
   );

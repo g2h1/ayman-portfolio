@@ -8,6 +8,8 @@ export default function Home() {
 
   return (
     <div>
+      <NewsTicker />
+
       {/* ---------- Hero ---------- */}
       <section className="relative overflow-hidden">
         {/* ambient glow — the one bold accent on the page */}
@@ -52,8 +54,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <NewsTicker />
     </div>
   );
 }
