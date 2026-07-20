@@ -245,6 +245,7 @@ export default function Lightbox({ project, onClose }) {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder={t.contact.namePlaceholder}
+                    maxLength={60}
                     className="w-full sm:w-40 rounded-xl border border-ink-line bg-ink px-3 py-2 text-sm text-paper placeholder:text-paper-muted/60 focus:outline-none focus:border-ember transition-colors"
                   />
                   <input
@@ -252,6 +253,7 @@ export default function Lightbox({ project, onClose }) {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder={t.work.commentPlaceholder}
+                    maxLength={500}
                     className="w-full flex-1 rounded-xl border border-ink-line bg-ink px-3 py-2 text-sm text-paper placeholder:text-paper-muted/60 focus:outline-none focus:border-ember transition-colors"
                   />
                   <button
